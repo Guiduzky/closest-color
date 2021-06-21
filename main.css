@@ -1,0 +1,30 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: monospace;
+}
+
+:root {
+	--hexColor: #ff0000;
+}
+
+body {
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+	padding-bottom: 20vh;
+}
+
+h2 {
+	font-size: 25px;
+}
+
+.color {
+	margin: 0 auto;
+	margin-top: 1%;
+	width: 100vh;
+	height: 23vh;
+	background-color: var(--hexColor);
+}
