@@ -5,7 +5,8 @@
 }
 
 :root {
-	--hexColor: #ff0000;
+	--closestColor: ;
+	--userColor: ;
 }
 
 body {
@@ -13,18 +14,47 @@ body {
 }
 
 h1 {
-	font-size: 40px;
-	padding-bottom: 20vh;
+	font-size: 8vh;
+	padding-bottom: 17vh;
 }
 
 h2 {
-	font-size: 25px;
+	font-size: 4vh;
 }
 
-.color {
-	margin: 0 auto;
+.text-color {
+	margin-top: 1%
+}
+
+#button-check {
 	margin-top: 1%;
+}
+
+.user-color {
+	margin: 0 auto;
+	margin-top: 0.1%;
 	width: 100vh;
 	height: 23vh;
-	background-color: var(--hexColor);
+	background-color: var(--userColor);
+	border: 0.1vh;
+	border-color: black;
+	border-style: solid;
+}
+
+.closest-color {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	margin-top: 0.1%;
+	width: 100vh;
+	height: 23vh;
+	background-color: var(--closestColor);
+	border: 0.1vh;
+	border-color: black;
+	border-style: solid;
+}
+
+#closest-text {
+	font-size: 4vh;
 }
