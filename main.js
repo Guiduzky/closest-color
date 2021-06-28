@@ -37,43 +37,43 @@ r.style.setProperty('--closestColor', closestColor);
 switch (closestColor) {
 	case "#ffffff":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "White";
+		document.getElementById('closest-text').innerText = "White";
 		break;
 	case "#000000":
 		r.style.setProperty('--textColor', "white");
-		document.getElementById('closest-text').innerHTML = "Black";
+		document.getElementById('closest-text').innerText = "Black";
 		break;
 	case "#ff0000":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Red";
+		document.getElementById('closest-text').innerText = "Red";
 		break;
 	case "#ff8000":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Orange";
+		document.getElementById('closest-text').innerText = "Orange";
 		break;
 	case "#ffff00":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Yellow";
+		document.getElementById('closest-text').innerText = "Yellow";
 		break;
 	case "#00ff00":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Green";
+		document.getElementById('closest-text').innerText = "Green";
 		break;
 	case "#00ffff":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Cyan";
+		document.getElementById('closest-text').innerText = "Cyan";
 		break;
 	case "#0000ff":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Blue";
+		document.getElementById('closest-text').innerText = "Blue";
 		break;
 	case "#8000ff":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Purple";
+		document.getElementById('closest-text').innerText = "Purple";
 		break;
 	case "#ff00ff":
 		r.style.setProperty('--textColor', "black");
-		document.getElementById('closest-text').innerHTML = "Magenta";
+		document.getElementById('closest-text').innerText = "Magenta";
 		break;
 }
 
@@ -100,43 +100,43 @@ document.getElementById('button-check').onclick = function() {
 	switch (closestColor) {
 		case "#ffffff":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "White";
+			document.getElementById('closest-text').innerText = "White";
 			break;
 		case "#000000":
 			r.style.setProperty('--textColor', "white");
-			document.getElementById('closest-text').innerHTML = "Black";
+			document.getElementById('closest-text').innerText = "Black";
 			break;
 		case "#ff0000":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Red";
+			document.getElementById('closest-text').innerText = "Red";
 			break;
 		case "#ff8000":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Orange";
+			document.getElementById('closest-text').innerText = "Orange";
 			break;
 		case "#ffff00":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Yellow";
+			document.getElementById('closest-text').innerText = "Yellow";
 			break;
 		case "#00ff00":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Green";
+			document.getElementById('closest-text').innerText = "Green";
 			break;
 		case "#00ffff":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Cyan";
+			document.getElementById('closest-text').innerText = "Cyan";
 			break;
 		case "#0000ff":
 			r.style.setProperty('--textColor', "white");
-			document.getElementById('closest-text').innerHTML = "Blue";
+			document.getElementById('closest-text').innerText = "Blue";
 			break;
 		case "#8000ff":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Purple";
+			document.getElementById('closest-text').innerText = "Purple";
 			break;
 		case "#ff00ff":
 			r.style.setProperty('--textColor', "black");
-			document.getElementById('closest-text').innerHTML = "Magenta";
+			document.getElementById('closest-text').innerText = "Magenta";
 			break;
 	}
 }
