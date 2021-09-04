@@ -1,7 +1,7 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	font-family: monospace;
+	font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -12,11 +12,13 @@
 
 body {
 	text-align: center;
+	background-image: url(img/Diamond.png);
+	background-size: 2.2vw;
 }
 
 h1 {
 	font-size: 8vh;
-	margin-bottom: 8vh;
+	margin-bottom: 1vh;
 }
 
 h2 {
@@ -24,10 +26,19 @@ h2 {
 }
 
 .text-color {
-	margin-top: 1%
+	margin-top: 1%;
+	position: relative;
+	bottom: -2.5vh;
+}
+
+#input-hex {
+	font-size: 3vh;
 }
 
 #button-check {
+	font-size: 3vh;
+	padding-left: 1vw;
+	padding-right: 1vw;
 	margin-top: 1%;
 }
 
@@ -35,11 +46,14 @@ h2 {
 	margin: 0 auto;
 	margin-top: 0.1%;
 	width: 100vh;
-	height: 23vh;
+	height: 22vh;
 	background-color: var(--userColor);
-	border: 0.1vh;
-	border-color: black;
-	border-style: solid;
+	border-radius: 1vw;
+}
+
+.text {
+	position: relative;
+	bottom: -2.5vh;
 }
 
 .closest-color {
@@ -49,11 +63,9 @@ h2 {
 	margin: 0 auto;
 	margin-top: 0.1%;
 	width: 100vh;
-	height: 23vh;
+	height: 22vh;
 	background-color: var(--closestColor);
-	border: 0.1vh;
-	border-color: black;
-	border-style: solid;
+	border-radius: 1vw;
 }
 
 #closest-text {

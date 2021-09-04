@@ -1,19 +1,21 @@
 //--- Reference Values ---\\
-let red 	= [255,   0,   0];
-let orange 	= [255, 128,   0];
-let yellow 	= [255, 255,   0];
-let green 	= [  0, 255,   0];
-let cyan 	= [  0, 255, 255];
-let blue 	= [  0,   0, 255];
-let purple 	= [128,   0, 255];
-let magenta = [255,   0, 255];
-let black	= [  0,   0,   0];
-let white 	= [255, 255, 255];
-//  color 	= [RRR, GGG, BBB];
+let red 		= [255,   0,   0];
+let orange 		= [255, 128,   0];
+let yellow 		= [255, 255,   0];
+let green 		= [  0, 255,   0];
+let darkGreen 	= [  0, 128,   0];
+let cyan 		= [  0, 255, 255];
+let blue 		= [  0,   0, 255];
+let purple 		= [128,   0, 255];
+let magenta		= [255,   0, 255];
+let black		= [  0,   0,   0];
+let white 		= [255, 255, 255];
+//  color 		= [RRR, GGG, BBB];
+
+
 
 //Define r as root
 let r = document.querySelector(':root');
-
 
 
 //Get the user input and store it in inputHex
@@ -80,8 +82,9 @@ function getClosestColor(R, G, B) {
 	let closestBlue;
 	let closestGreen;
 	let closestRed;
-	let textColor;
-	let text;
+	let textColor = "black";
+	let text = "none";
+	let borderColor = "white";
 	
 	//Search the closest pure value to blueDecimal
 		//Blue only has 2 possible values (see Reference Values)
@@ -125,7 +128,7 @@ function getClosestColor(R, G, B) {
 	}
 
 	
-	//Search the closest pure value to greenDecimal
+	//Search the closest pure value to redDecimal
 
 	//If closestBlue is 0 and closestGreen is also 0 then
 	if (closestBlue === "00" && closestGreen === "00") {
@@ -139,9 +142,14 @@ function getClosestColor(R, G, B) {
 		}
 	//If closestBlue is 0 and closestGreen is 128 then
 	} else if (closestBlue === "00" && closestGreen === "80") {
-		//Red has only 1 possible value (see Reference Values)
-		//255
-		closestRed = "ff";
+			//Red has 2 possible values
+		if (redDecimal >= 0 && redDecimal < 128) {
+			//0
+			closestRed = "00";
+		} else if (redDecimal >= 128 && redDecimal <= 255) {
+			//or 255
+			closestRed = "ff";
+		}
 	//If closestBlue is 0 and closestGreen is 255 then
 	} else if (closestBlue === "00" && closestGreen === "ff") {
 			//Red has 2 possible values
@@ -168,12 +176,22 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestRed = "ff";
 		}
+	//If closestBlue is 255 and closestGreen is also 255 then
+	} else if (closestBlue === "ff" && closestGreen === "ff") {
+			//Red has 2 possible values
+		if (redDecimal >= 0 && redDecimal < 128) {
+			//0
+			closestRed = "00";
+		} else if (redDecimal >= 128 && redDecimal <= 255) {
+			//or 255
+			closestRed = "ff";
+		}
 	}
 
 	//Join the 3 numbers in one hex color code
 	let closestColor = `#${closestRed}${closestGreen}${closestBlue}`;
 
-	//Change the text and the text color according to the closest color
+	//Change the text, the text color and the border color according to the closest color
 	switch (closestColor) {
 			//If it's white
 		case "#ffffff":
@@ -187,7 +205,7 @@ function getClosestColor(R, G, B) {
 			break;
 			//If it's red
 		case "#ff0000":
-			textColor = "black";
+			textColor = "white";
 			text = "Red";
 			break;
 			//If it's orange
@@ -205,6 +223,11 @@ function getClosestColor(R, G, B) {
 			textColor = "black";
 			text = "Green";
 			break;
+			//If it's dark green
+		case "#008000":
+			textColor = "black";
+			text = "Dark Green";
+			break;
 			//If it's cyan
 		case "#00ffff":
 			textColor = "black";
@@ -217,7 +240,7 @@ function getClosestColor(R, G, B) {
 			break;
 			//If it's purple
 		case "#8000ff":
-			textColor = "black";
+			textColor = "white";
 			text = "Purple";
 			break;
 			//If it's magenta
@@ -227,6 +250,6 @@ function getClosestColor(R, G, B) {
 			break;
 	}
 
-	//Devolver el HEX final
+	//Return all the needed to display the closest color
 	return [closestColor, textColor, text];
 }
