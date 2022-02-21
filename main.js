@@ -17,34 +17,20 @@ let white 		= [255, 255, 255];
 //Define r as root
 let r = document.querySelector(':root');
 
+runPage();
 
-//Get the user input and store it in inputHex
-let inputHex = document.getElementById('input-hex').value;
-
-//Put the user hex color in the --userColor CSS variable (user's color box)
-r.style.setProperty('--userColor', inputHex);
-
-//Splite inputHex in RGB hex values
-let RedGB = inputHex.slice(1, 3);
-let RGreenB = inputHex.slice(3, 5);
-let RGBlue = inputHex.slice(5, 7);
-
-//Get the closest pure color to the user color
-let closestColor = getClosestColor(RedGB, RGreenB, RGBlue)[0];
-
-//Put closestColor in the --closestColor CSS variable (closest color box)
-r.style.setProperty('--closestColor', closestColor);
-
-//Set the text color according to the closest color
-r.style.setProperty('--textColor', getClosestColor(RedGB, RGreenB, RGBlue)[1]);
-
-//Set the text according to the closest color
-document.getElementById('closest-text').innerText = getClosestColor(RedGB, RGreenB, RGBlue)[2];
-
-
-
-//Once the button get clicked execute all again
+//Once the button get clicked run the page again
 document.getElementById('button-check').onclick = function() {
+	runPage();
+}
+
+//If the enter key is pressed run the page again
+document.addEventListener('keydown', function(e) {
+	if (e.key === "Enter") runPage();
+}, false);
+
+
+function runPage() {
 	//Get the user input and store it in inputHex
 	let inputHex = document.getElementById('input-hex').value;
 
@@ -69,23 +55,30 @@ document.getElementById('button-check').onclick = function() {
 	document.getElementById('closest-text').innerText = getClosestColor(RedGB, RGreenB, RGBlue)[2];
 }
 
-
-
-
 function getClosestColor(R, G, B) {
 	//Convert the hex numbers into decimal numbers
 	let redDecimal = parseInt(R, 16);
 	let greenDecimal = parseInt(G, 16);
 	let blueDecimal = parseInt(B, 16);
 
-	//Define variables
+	//Get closest colors
+	let closestBlue = getClosestBlue(blueDecimal);
+	let closestGreen = getClosestGreen(greenDecimal, closestBlue);
+	let closestRed = getClosestRed(redDecimal, closestBlue, closestGreen);
+
+	//Join the 3 numbers in one hex color code
+	let closestColor = `#${closestRed}${closestGreen}${closestBlue}`;
+
+	let textColor = changeText(closestColor).color;
+	let text = changeText(closestColor).text;
+
+	//Return all the needed to display the closest color
+	return [closestColor, textColor, text];
+}
+
+function getClosestBlue(blueDecimal) {
 	let closestBlue;
-	let closestGreen;
-	let closestRed;
-	let textColor = "black";
-	let text = "none";
-	let borderColor = "white";
-	
+
 	//Search the closest pure value to blueDecimal
 		//Blue only has 2 possible values (see Reference Values)
 	if (blueDecimal >= 0 && blueDecimal < 128) {
@@ -96,10 +89,14 @@ function getClosestColor(R, G, B) {
 		closestBlue = "ff";
 	}
 
-	
-	//Search the closest pure value to greenDecimal
+	return closestBlue;
+}
 
-	//If closestBlue is 0 then
+function getClosestGreen(greenDecimal, closestBlue) {
+	let closestGreen;
+
+	//Search the closest pure value to greenDecimal
+		//If closestBlue is 0 then
 	if (closestBlue === "00") {
 			//Green has 3 possible values
 		if (greenDecimal >= 0 && greenDecimal < 64) {
@@ -115,7 +112,7 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestGreen = "ff";
 		}
-	//If closestBlue is 0 then
+		//If closestBlue is 0 then
 	} else if (closestBlue === "ff") {
 			//Green has 2 possible values
 		if (greenDecimal >= 0 && greenDecimal < 128) {
@@ -127,10 +124,14 @@ function getClosestColor(R, G, B) {
 		}
 	}
 
-	
-	//Search the closest pure value to redDecimal
+	return closestGreen;
+}
 
-	//If closestBlue is 0 and closestGreen is also 0 then
+function getClosestRed(redDecimal, closestBlue, closestGreen) {
+	let closestRed;
+
+	//Search the closest pure value to redDecimal
+		//If closestBlue is 0 and closestGreen is also 0 then
 	if (closestBlue === "00" && closestGreen === "00") {
 			//Red has 2 possible values
 		if (redDecimal >= 0 && redDecimal < 128) {
@@ -140,7 +141,7 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestRed = "ff";
 		}
-	//If closestBlue is 0 and closestGreen is 128 then
+		//If closestBlue is 0 and closestGreen is 128 then
 	} else if (closestBlue === "00" && closestGreen === "80") {
 			//Red has 2 possible values
 		if (redDecimal >= 0 && redDecimal < 128) {
@@ -150,7 +151,7 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestRed = "ff";
 		}
-	//If closestBlue is 0 and closestGreen is 255 then
+		//If closestBlue is 0 and closestGreen is 255 then
 	} else if (closestBlue === "00" && closestGreen === "ff") {
 			//Red has 2 possible values
 		if (redDecimal >= 0 && redDecimal < 128) {
@@ -160,7 +161,7 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestRed = "ff";
 		}
-	//If closestBlue is 255 and closestGreen is 0 then
+		//If closestBlue is 255 and closestGreen is 0 then
 	} else if (closestBlue === "ff" && closestGreen === "00") {
 			//Red has 3 possible values
 		if (redDecimal >= 0 && redDecimal < 64) {
@@ -176,7 +177,7 @@ function getClosestColor(R, G, B) {
 			//or 255
 			closestRed = "ff";
 		}
-	//If closestBlue is 255 and closestGreen is also 255 then
+		//If closestBlue is 255 and closestGreen is also 255 then
 	} else if (closestBlue === "ff" && closestGreen === "ff") {
 			//Red has 2 possible values
 		if (redDecimal >= 0 && redDecimal < 128) {
@@ -188,10 +189,14 @@ function getClosestColor(R, G, B) {
 		}
 	}
 
-	//Join the 3 numbers in one hex color code
-	let closestColor = `#${closestRed}${closestGreen}${closestBlue}`;
+	return closestRed;
+}
 
-	//Change the text, the text color and the border color according to the closest color
+function changeText(closestColor) {
+	let textColor = "black";
+	let text = "none";
+
+	//Change the text and the text color according to the closest color
 	switch (closestColor) {
 			//If it's white
 		case "#ffffff":
@@ -250,6 +255,8 @@ function getClosestColor(R, G, B) {
 			break;
 	}
 
-	//Return all the needed to display the closest color
-	return [closestColor, textColor, text];
+	return {
+		color: textColor,
+		text: text
+	};
 }
