@@ -8,12 +8,47 @@
 	--closestColor: ;
 	--userColor: ;
 	--textColor: ;
+	--1color:  ;
+	--2color:  ;
+	--3color:  ;
+	--4color:  ;
+	--5color:  ;
+	--6color:  ;
+	--7color:  ;
+	--8color:  ;
+	--9color:  ;
+	--10color: ;
+	--11color: ;
+	--12color: ;
+	--13color: ;
+	--14color: ;
+	--15color: ;
+	--16color: ;
+	--17color: ;
+	--18color: ;
+	--19color: ;
+	--20color: ;
+	--21color: ;
+	--22color: ;
+}
+
+@keyframes move-background {
+    from {
+        background-position: 0% 0%
+    }
+    to { 
+        background-position: 100% 200%
+    }
 }
 
 body {
 	text-align: center;
 	background-image: url("./img/background.png");
-	background-size: 2vmax;
+	background-size: 2.5vmax;
+	animation-name: move-background;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 h1 {
@@ -37,9 +72,25 @@ h2 {
 
 #button-check {
 	font-size: 3vmin;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding: 1vmax;
+	padding-top: 0.5vmax;
+	padding-bottom: 0.5vmax;
 	margin-top: 1%;
+	background-color: white;
+	border-radius: 1vmin;
+	border: 0.1vmax solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#button-check:hover {
+	background-color: #f6f6f6;
+}
+
+#button-check:active {
+	position: relative;
+	top: 1px;
 }
 
 .user-color {
@@ -54,17 +105,19 @@ h2 {
 
 .text {
 	position: relative;
-	bottom: -2.5vmin;
+	top: -1.5vmin;
 }
 
 .closest-color {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
 	margin-top: 0.1%;
+	top: -3vmin;
 	width: 100vmin;
-	height: 22vmin;
+	height: 20vmin;
 	background-color: var(--closestColor);
 	border-radius: 1vw;
 	box-shadow: 0px 0px 0.5vmin 0px #000;
@@ -78,90 +131,90 @@ h2 {
 
 /* Title color variables */
 
-#1 {
+#c1 {
 	color: var(--1color);
 }
 
-#2 {
+#c2 {
 	color: var(--2color);
 }
 
-#3 {
+#c3 {
 	color: var(--3color);
 }
 
-#4 {
+#c4 {
 	color: var(--4color);
 }
 
-#5 {
+#c5 {
 	color: var(--5color);
 }
 
-#6 {
+#c6 {
 	color: var(--6color);
 }
 
-#7 {
+#c7 {
 	color: var(--7color);
 }
 
-#8 {
+#c8 {
 	color: var(--8color);
 }
 
-#9 {
+#c9 {
 	color: var(--9color);
 }
 
-#10 {
+#c10 {
 	color: var(--10color);
 }
 
-#11 {
+#c11 {
 	color: var(--11color);
 }
 
-#12 {
+#c12 {
 	color: var(--12color);
 }
 
-#13 {
+#c13 {
 	color: var(--13color);
 }
 
-#14 {
+#c14 {
 	color: var(--14color);
 }
 
-#15 {
+#c15 {
 	color: var(--15color);
 }
 
-#16 {
+#c16 {
 	color: var(--16color);
 }
 
-#17 {
+#c17 {
 	color: var(--17color);
 }
 
-#18 {
+#c18 {
 	color: var(--18color);
 }
 
-#19 {
+#c19 {
 	color: var(--19color);
 }
 
-#20 {
+#c20 {
 	color: var(--20color);
 }
 
-#21 {
+#c21 {
 	color: var(--21color);
 }
 
-#22 {
+#c22 {
 	color: var(--22color);
 }

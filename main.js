@@ -1,16 +1,16 @@
 //--- Reference Values ---\\
-let red 		= [255,   0,   0];
-let orange 		= [255, 128,   0];
-let yellow 		= [255, 255,   0];
-let green 		= [  0, 255,   0];
-let darkGreen 	= [  0, 128,   0];
-let cyan 		= [  0, 255, 255];
-let blue 		= [  0,   0, 255];
-let purple 		= [128,   0, 255];
-let magenta		= [255,   0, 255];
-let black		= [  0,   0,   0];
-let white 		= [255, 255, 255];
-//  color 		= [RRR, GGG, BBB];
+let red 		= "rgb(255,   0,   0)";
+let orange 		= "rgb(255, 128,   0)";
+let yellow 		= "rgb(255, 255,   0)";
+let green 		= "rgb(  0, 255,   0)";
+let darkGreen 	= "rgb(  0, 128,   0)";
+let cyan 		= "rgb(  0, 255, 255)";
+let blue 		= "rgb(  0,   0, 255)";
+let purple 		= "rgb(128,   0, 255)";
+let magenta		= "rgb(255,   0, 255)";
+let black		= "rgb(  0,   0,   0)";
+let white 		= "rgb(255, 255, 255)";
+//  color 		= "rgb(RRR, GGG, BBB)";
 
 
 
@@ -18,6 +18,9 @@ let white 		= [255, 255, 255];
 let r = document.querySelector(':root');
 
 runPage();
+
+//This will start the loop for the rainbow title
+window.requestAnimationFrame(loop);
 
 //Once the button get clicked run the page again
 document.getElementById('button-check').onclick = function() {
@@ -259,4 +262,97 @@ function changeText(closestColor) {
 		color: textColor,
 		text: text
 	};
+}
+
+//Loop
+let lastRenderTime = 0;
+const FPS = 10;
+
+let colorPos = 1;
+
+function loop(currentTime) {
+	//Request the browser to render a frame
+	window.requestAnimationFrame(loop);
+  
+	const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
+
+	//If the browser tries to render a frame faster than the fps const abort frame renderization
+	if (secondsSinceLastRender < 1 / FPS) return;
+
+	lastRenderTime = currentTime;
+
+	updateRainbowTitle();
+}
+
+function updateRainbowTitle() {
+	if (colorPos <= 22) {
+		changeColors(colorPos);
+		colorPos++;
+	} else colorPos = 1;
+}
+
+function changeColors(colorPos) {
+	let j = 21;
+
+	r.style.setProperty("--" + colorPos + "color", red);
+
+	for (let i = 1; i <= 21; i++) {
+		let color = getColor(j);
+
+		let pos = colorPos + j;
+
+		if (pos > 22) pos -= 22;
+
+		r.style.setProperty("--" + pos + "color", color);
+
+		j--;
+	}
+}
+
+function getColor(j) {
+	let color;
+
+	if (j === 21) {
+		color = "#ff00a0";
+	} else if (j === 20) {
+		color = "#ff00f0";
+	} else if (j === 19) {
+		color = "#ff00ff";
+	} else if (j === 18) {
+		color = "#af00ff";
+	} else if (j === 17) {
+		color = "#8500ff";
+	} else if (j === 16) {
+		color = "#5f00ff";
+	} else if (j === 15) {
+		color = "#0000ff";
+	} else if (j === 14) {
+		color = "#0050ff";
+	} else if (j === 13) {
+		color = "#00a0ff";
+	} else if (j === 12) {
+		color = "#00f0ff";
+	} else if (j === 11) {
+		color = "#00ffff";
+	} else if (j === 10) {
+		color = "#00fff0";
+	} else if (j === 9 ) {
+		color = "#00ffa0";
+	} else if (j === 8 ) {
+		color = "#00ff68";
+	} else if (j === 7 ) {
+		color = "#00ff00";
+	} else if (j === 6 ) {
+		color = "#5fff00";
+	} else if (j === 5 ) {
+		color = "#afff00";
+	} else if (j === 4 ) {
+		color = "#ffff00";
+	} else if (j === 3 ) {
+		color = "#ffc200";
+	} else if (j === 2 ) {
+		color = "#ffa000";
+	} else color = "#ff5000";
+
+	return color;
 }
