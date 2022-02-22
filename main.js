@@ -14,8 +14,34 @@ let white 		= "rgb(255, 255, 255)";
 
 
 
-//Define r as root
+//Define DOM elements
 let r = document.querySelector(':root');
+let diamondBlack = document.querySelector('img.black');
+let textBlack = document.querySelector('p.black');
+let diamondRed = document.querySelector('img.red');
+let textRed = document.querySelector('p.red');
+let diamondOrange = document.querySelector('img.orange');
+let textOrange = document.querySelector('p.orange');
+let diamondYellow = document.querySelector('img.yellow');
+let textYellow = document.querySelector('p.yellow');
+let diamondGreen = document.querySelector('img.green');
+let textGreen = document.querySelector('p.green');
+let diamondDarkGreen = document.querySelector('img.dark-green');
+let textDarkGreen = document.querySelector('p.dark-green');
+let diamondCyan = document.querySelector('img.cyan');
+let textCyan = document.querySelector('p.cyan');
+let diamondBlue = document.querySelector('img.blue');
+let textBlue = document.querySelector('p.blue');
+let diamondPurple = document.querySelector('img.purple');
+let textPurple = document.querySelector('p.purple');
+let diamondMagenta = document.querySelector('img.magenta');
+let textMagenta = document.querySelector('p.magenta');
+let diamondWhite = document.querySelector('img.white');
+let textWhite = document.querySelector('p.white');
+
+//Define lastClosestDiamond
+let lastClosestDiamond = 0;
+let lastClosestText = 0;
 
 runPage();
 
@@ -34,6 +60,13 @@ document.addEventListener('keydown', function(e) {
 
 
 function runPage() {
+	//Delete lastClosestDiamond from the selected class
+	if (lastClosestDiamond != 0) {
+		lastClosestText.classList.add('text');
+		lastClosestText.classList.remove('selected');
+		lastClosestDiamond.classList.remove('selected');
+	}
+
 	//Get the user input and store it in inputHex
 	let inputHex = document.getElementById('input-hex').value;
 
@@ -46,16 +79,86 @@ function runPage() {
 	let RGBlue = inputHex.slice(5, 7);
 
 	//Get the closest pure color to the user color
-	let closestColor = getClosestColor(RedGB, RGreenB, RGBlue)[0];
+	let closestColor = getClosestColor(RedGB, RGreenB, RGBlue);
 
-	//Put closestColor in the --closestColor CSS variable (closest color box)
-	r.style.setProperty('--closestColor', closestColor);
-
-	//Set the text color according to the closest color
-	r.style.setProperty('--textColor', getClosestColor(RedGB, RGreenB, RGBlue)[1]);
-
-	//Set the text according to the closest color
-	document.getElementById('closest-text').innerText = getClosestColor(RedGB, RGreenB, RGBlue)[2];
+	if (closestColor === "#000000") {
+		//If the closest color is black
+		lastClosestDiamond = diamondBlack;
+		lastClosestText = textBlack;
+		textBlack.classList.add('selected');
+		textBlack.classList.remove('text');
+		diamondBlack.classList.add('selected');
+	} else if (closestColor === "#ff0000") {
+		//If the closest color is red
+		lastClosestDiamond = diamondRed;
+		lastClosestText = textRed;
+		textRed.classList.add('selected');
+		textRed.classList.remove('text');
+		diamondRed.classList.add('selected');
+	} else if (closestColor === "#ff8000") {
+		//If the closest color is orange
+		lastClosestDiamond = diamondOrange;
+		lastClosestText = textOrange;
+		textOrange.classList.add('selected');
+		textOrange.classList.remove('text');
+		diamondOrange.classList.add('selected');
+	} else if (closestColor === "#ffff00") {
+		//If the closest color is yellow
+		lastClosestDiamond = diamondYellow;
+		lastClosestText = textYellow;
+		textYellow.classList.add('selected');
+		textYellow.classList.remove('text');
+		diamondYellow.classList.add('selected');
+	} else if (closestColor === "#00ff00") {
+		//If the closest color is green
+		lastClosestDiamond = diamondGreen;
+		lastClosestText = textGreen;
+		textGreen.classList.add('selected');
+		textGreen.classList.remove('text');
+		diamondGreen.classList.add('selected');
+	} else if (closestColor === "#008000") {
+		//If the closest color is dark green
+		lastClosestDiamond = diamondDarkGreen;
+		lastClosestText = textDarkGreen;
+		textDarkGreen.classList.add('selected');
+		textDarkGreen.classList.remove('text');
+		diamondDarkGreen.classList.add('selected');
+	} else if (closestColor === "#00ffff") {
+		//If the closest color is cyan
+		lastClosestDiamond = diamondCyan;
+		lastClosestText = textCyan;
+		textCyan.classList.add('selected');
+		textCyan.classList.remove('text');
+		diamondCyan.classList.add('selected');
+	} else if (closestColor === "#0000ff") {
+		//If the closest color is blue
+		lastClosestDiamond = diamondBlue;
+		lastClosestText = textBlue;
+		textBlue.classList.add('selected');
+		textBlue.classList.remove('text');
+		diamondBlue.classList.add('selected');
+	} else if (closestColor === "#8000ff") {
+		//If the closest color is purple
+		lastClosestDiamond = diamondPurple;
+		lastClosestText = textPurple;
+		textPurple.classList.add('selected');
+		textPurple.classList.remove('text');
+		diamondPurple.classList.add('selected');
+	} else if (closestColor === "#ff00ff") {
+		//If the closest color is magenta
+		lastClosestDiamond = diamondMagenta;
+		lastClosestText = textMagenta;
+		textMagenta.classList.add('selected');
+		textMagenta.classList.remove('text');
+		diamondMagenta.classList.add('selected');
+	} else if (closestColor === "ffffff") {
+		//If the closest color is white
+		lastClosestDiamond = diamondWhite;
+		lastClosestText = textWhite;
+		textWhite.classList.add('selected');
+		textWhite.classList.remove('text');
+		diamondWhite.classList.add('selected');
+	}
 }
 
 function getClosestColor(R, G, B) {
@@ -72,11 +175,8 @@ function getClosestColor(R, G, B) {
 	//Join the 3 numbers in one hex color code
 	let closestColor = `#${closestRed}${closestGreen}${closestBlue}`;
 
-	let textColor = changeText(closestColor).color;
-	let text = changeText(closestColor).text;
-
 	//Return all the needed to display the closest color
-	return [closestColor, textColor, text];
+	return closestColor;
 }
 
 function getClosestBlue(blueDecimal) {
@@ -195,75 +295,6 @@ function getClosestRed(redDecimal, closestBlue, closestGreen) {
 	return closestRed;
 }
 
-function changeText(closestColor) {
-	let textColor = "black";
-	let text = "none";
-
-	//Change the text and the text color according to the closest color
-	switch (closestColor) {
-			//If it's white
-		case "#ffffff":
-			textColor = "black";
-			text = "White";
-			break;
-			//If it's black
-		case "#000000":
-			textColor = "white";
-			text = "Black";
-			break;
-			//If it's red
-		case "#ff0000":
-			textColor = "white";
-			text = "Red";
-			break;
-			//If it's orange
-		case "#ff8000":
-			textColor = "black";
-			text = "Orange";
-			break;
-			//If it's yellow
-		case "#ffff00":
-			textColor = "black";
-			text = "Yellow";
-			break;
-			//If it's green
-		case "#00ff00":
-			textColor = "black";
-			text = "Green";
-			break;
-			//If it's dark green
-		case "#008000":
-			textColor = "black";
-			text = "Dark Green";
-			break;
-			//If it's cyan
-		case "#00ffff":
-			textColor = "black";
-			text = "Cyan";
-			break;
-			//If it's blue
-		case "#0000ff":
-			textColor = "white";
-			text = "Blue";
-			break;
-			//If it's purple
-		case "#8000ff":
-			textColor = "white";
-			text = "Purple";
-			break;
-			//If it's magenta
-		case "#ff00ff":
-			textColor = "black";
-			text = "Magenta";
-			break;
-	}
-
-	return {
-		color: textColor,
-		text: text
-	};
-}
-
 //Loop
 let lastRenderTime = 0;
 const FPS = 10;
@@ -288,19 +319,25 @@ function updateRainbowTitle() {
 	if (colorPos <= 22) {
 		changeColors(colorPos);
 		colorPos++;
-	} else colorPos = 1;
+	} else {
+		colorPos = 1;
+		changeColors(colorPos);
+	}
 }
 
 function changeColors(colorPos) {
 	let j = 21;
 
+	//Change the first character
 	r.style.setProperty("--" + colorPos + "color", red);
 
+	//Change the other 21
 	for (let i = 1; i <= 21; i++) {
 		let color = getColor(j);
 
 		let pos = colorPos + j;
 
+		//When the position gets to the end, start with 1 again
 		if (pos > 22) pos -= 22;
 
 		r.style.setProperty("--" + pos + "color", color);

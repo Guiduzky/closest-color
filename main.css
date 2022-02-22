@@ -43,6 +43,7 @@
 
 body {
 	text-align: center;
+	overflow: hidden;
 	background-image: url("./img/background.png");
 	background-size: 2.5vmax;
 	animation-name: move-background;
@@ -103,29 +104,133 @@ h2 {
 	box-shadow: 0px 0px 0.5vmin 0px #000;
 }
 
-.text {
-	position: relative;
-	top: -1.5vmin;
-}
-
-.closest-color {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	margin-top: 0.1%;
-	top: -3vmin;
-	width: 100vmin;
-	height: 20vmin;
-	background-color: var(--closestColor);
-	border-radius: 1vw;
-	box-shadow: 0px 0px 0.5vmin 0px #000;
+img {
+	width: 5vmax;
+	transition: 1s;
 }
 
 #closest-text {
 	font-size: 4vmin;
 	color: var(--textColor);
+}
+
+#diamond-container {
+	display: flex;
+	justify-content: center;
+	gap: 1%;
+	margin-top: 2vmax;
+}
+
+#diamond-container .text {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	top: -50%;
+}
+
+/* Text Colors */
+
+p.selected {
+	position: relative;
+	visibility: visible;
+	opacity: 1;
+	top: -50%;
+	z-index: 3;
+	transition: opacity 1s;
+}
+
+p.black {
+	color: white;
+}
+
+p.red {
+	color: white;
+}
+
+p.orange {
+	color: white;
+}
+
+p.yellow {
+	color: black;
+}
+
+p.green {
+	color: black;
+}
+
+p.dark-green {
+	color: white;
+	font-size: 2vmin;
+}
+
+p.cyan {
+	color: black;
+}
+
+p.blue {
+	color: white;
+}
+
+p.purple {
+	color: white;
+}
+
+p.magenta {
+	color: black;
+}
+
+p.white {
+	color: black;
+}
+
+/* Color Diamonds */
+
+img.selected {
+	position: relative;
+	transform: scale(1.3);
+	z-index: 2;
+	transition: 1s;
+}
+
+img.red {
+	filter: invert(18%) sepia(61%) saturate(6868%) hue-rotate(357deg) brightness(88%) contrast(131%);
+}
+
+img.orange {
+	filter: invert(52%) sepia(21%) saturate(3823%) hue-rotate(360deg) brightness(102%) contrast(103%);
+}
+
+img.yellow {
+	filter: invert(99%) sepia(89%) saturate(5861%) hue-rotate(1deg) brightness(104%) contrast(103%);
+}
+
+img.green {
+	filter: invert(66%) sepia(96%) saturate(3816%) hue-rotate(84deg) brightness(125%) contrast(124%);
+}
+
+img.dark-green {
+	filter: invert(14%) sepia(92%) saturate(6172%) hue-rotate(122deg) brightness(102%) contrast(102%);
+}
+
+img.cyan {
+	filter: invert(81%) sepia(53%) saturate(2410%) hue-rotate(126deg) brightness(109%) contrast(103%);
+}
+
+img.blue {
+	filter: invert(8%) sepia(100%) saturate(7499%) hue-rotate(247deg) brightness(92%) contrast(144%);
+}
+
+img.purple {
+	filter: invert(11%) sepia(96%) saturate(7497%) hue-rotate(271deg) brightness(101%) contrast(125%);
+}
+
+img.magenta {
+	filter: invert(36%) sepia(90%) saturate(6819%) hue-rotate(295deg) brightness(113%) contrast(132%);
+}
+
+img.white {
+	filter: invert(100%) sepia(94%) saturate(0%) hue-rotate(163deg) brightness(109%) contrast(102%);
 }
 
 
