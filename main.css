@@ -44,7 +44,6 @@
 body {
 	text-align: center;
 	background-image: url("./img/background.png");
-	background-size: 2.5vmax;
 	animation-name: move-background;
     animation-duration: 100s;
     animation-timing-function: linear;
@@ -55,6 +54,7 @@ body {
 	body {
 		overflow: hidden;
 		font-size: 3vmin;
+		background-size: 2.5vmax;
 	}
 
 	h1 {
@@ -170,7 +170,8 @@ body {
 @media (orientation: portrait) {
 	body {
 		overflow: auto;
-		font-size: 3vmin;
+		font-size: 4vmin;
+		background-size: 8vmax;
 	}
 
 	h1 {
