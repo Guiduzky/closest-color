@@ -38,47 +38,60 @@
 	</h1><br>
 
 	<h2>Write the HEX code of the color</h2><br>
-	<input id="input-hex" type="text" name="color-input" value="#fcc201"><br>
+	<input id="input-hex" type="text" name="color-input" value="#fcc200"><br>
+	<p id="error-message" class="hidden">Please enter a valid HEX number (# and 6 digits)</p>
 	<input id="button-check" type="submit" name="button-check" value="Check"><br>
 
-	<p class="text-color">This is your color</p><br>
+	<p class="text-color">Your color:</p><br>
 	<div class="user-color"></div><br>
 
+	<p class="text">The closest color:</p>
 	<div id="diamond-container">
-		<div>
-			<img src="img/diamond.png" class="black"><p class="text black">Black</p>
+		<div class="up">
+			<img src="img/diamond.png" class="black">
+			<p class="text black">Black</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="red"><p class="text red">Red</p>
+		<div class="left">
+			<img src="img/diamond.png" class="red">
+			<p class="text red">Red</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="orange"><p class="text orange">Orange</p>
+		<div class="left up">
+			<img src="img/diamond.png" class="orange">
+			<p class="text orange">Orange</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="yellow"><p class="text yellow">Yellow</p>
+		<div class="left">
+			<img src="img/diamond.png" class="yellow">
+			<p class="text yellow">Yellow</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="green"><p class="text green">Green</p>
+		<div class="left up">
+			<img src="img/diamond.png" class="green">
+			<p class="text green">Green</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="dark-green"><p class="text dark-green">Dark Green</p>
+		<div class="left">
+			<img src="img/diamond.png" class="dark-green">
+			<p class="text dark-green">Dark Green</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="cyan"><p class="text cyan">Cyan</p>
+		<div class="left up">
+			<img src="img/diamond.png" class="cyan">
+			<p class="text cyan">Cyan</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="blue"><p class="text blue">Blue</p>
+		<div class="left">
+			<img src="img/diamond.png" class="blue">
+			<p class="text blue">Blue</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="purple"><p class="text purple">Purple</p>
+		<div class="left up">
+			<img src="img/diamond.png" class="purple">
+			<p class="text purple">Purple</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="magenta"><p class="text magenta">Magenta</p>
+		<div class="left">
+			<img src="img/diamond.png" class="magenta">
+			<p class="text magenta">Magenta</p>
 		</div>
-		<div>
-			<img src="img/diamond.png" class="white"><p class="text white">White</p>
+		<div class="left up">
+			<img src="img/diamond.png" class="white">
+			<p class="text white">White</p>
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="./main.js"></script>
+<script type="module" src="js/main.js"></script>
 </html>

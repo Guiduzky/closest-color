@@ -43,6 +43,7 @@
 
 body {
 	text-align: center;
+	font-size: 3vmin;
 	overflow: hidden;
 	background-image: url("./img/background.png");
 	background-size: 2.5vmax;
@@ -52,80 +53,238 @@ body {
     animation-iteration-count: infinite;
 }
 
-h1 {
-	font-size: 8vmin;
-	margin-bottom: 1vmin;
+@media (orientation: landscape) {
+
+	h1 {
+		font-size: 8vmin;
+		margin-bottom: 1vmin;
+		user-select: none;
+	}
+
+	h2 {
+		font-size: 4vmin;
+	}
+
+	.text-color {
+		margin-top: 0.5%;
+		margin-bottom: -2.5vmin;
+	}
+
+	#input-hex {
+	    padding: 1vmin;
+	    font-size: 3vmin;
+	    border-width: 0px;
+	    border-radius: 1vmin;
+	    background-color: #fff;
+	    color: #000;
+	}
+
+	#input-hex:hover {
+	    box-shadow: 0px 0px 1vmin 0px #fff;
+	}
+
+	#input-hex:focus-visible {
+		outline: 0px;
+	    box-shadow: 0px 0px 1vmin 0px #fff;
+	}
+
+	#button-check {
+		font-size: 3vmin;
+		padding: 1vmax;
+		padding-top: 0.5vmax;
+		padding-bottom: 0.5vmax;
+		margin-top: 0.5%;
+		background-color: white;
+		border-radius: 1vmin;
+		border: 0px;
+		display: inline-block;
+		cursor: pointer;
+		font-weight: bold;
+	}
+
+	#button-check:hover {
+		box-shadow: 0px 0px 1vmin 0px #fff;
+	}
+
+	#button-check:active {
+		position: relative;
+		top: 1px;
+	}
+
+	#error-message.hidden {
+		display: none;
+	}
+
+	#error-message.visible {
+		display: block;
+		margin-top: 0.2%;
+		font-size: 2vmin;
+		color: gray;
+	}
+
+	.user-color {
+		margin: 0 auto;
+		margin-top: 0.1%;
+		width: 20vmin;
+		height: 20vmin;
+		background-color: var(--userColor);
+		border-radius: 1vw;
+		box-shadow: 0px 0px 1vmin 0px #fff;
+	}
+
+	.text {
+		position: relative;
+		top: -1.5vmin;
+	}
+
+	img {
+		width: 10vmin;
+		user-select: none;
+		z-index: 1;
+		transition: 1s;
+	}
+
+	#diamond-container {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-top: 9vmin;
+	}
+
+	#diamond-container .text {
+		position: absolute;
+		opacity: 0;
+	}
+
+	.up {
+		margin-top: -8.25vmin;
+	}
+
+	.left {
+		margin-left: -5vmin;
+	}
 }
 
-h2 {
-	font-size: 4vmin;
-}
+@media (orientation: portrait) {
 
-.text-color {
-	margin-top: 1%;
-	position: relative;
-	bottom: -2.5vmin;
-}
+	h1 {
+		font-size: 10vmin;
+		margin-bottom: 5vmin;
+		user-select: none;
+	}
 
-#input-hex {
-	font-size: 3vmin;
-}
+	h2 {
+		font-size: 6vmin;
+	}
 
-#button-check {
-	font-size: 3vmin;
-	padding: 1vmax;
-	padding-top: 0.5vmax;
-	padding-bottom: 0.5vmax;
-	margin-top: 1%;
-	background-color: white;
-	border-radius: 1vmin;
-	border: 0.1vmax solid #dcdcdc;
-	display: inline-block;
-	cursor: pointer;
-	font-weight: bold;
-}
+	#input-hex {
+	    padding: 2vmin;
+	    font-size: 5vmin;
+	    border-width: 0px;
+	    border-radius: 1vmin;
+	    background-color: #fff;
+	    color: #000;
+	}
 
-#button-check:hover {
-	background-color: #f6f6f6;
-}
+	#input-hex:hover {
+	    box-shadow: 0px 0px 1vmax 0px #fff;
+	}
 
-#button-check:active {
-	position: relative;
-	top: 1px;
-}
+	#input-hex:focus-visible {
+		outline: 0px;
+	    box-shadow: 0px 0px 1vmax 0px #fff;
+	}
 
-.user-color {
-	margin: 0 auto;
-	margin-top: 0.1%;
-	width: 100vmin;
-	height: 22vmin;
-	background-color: var(--userColor);
-	border-radius: 1vw;
-	box-shadow: 0px 0px 0.5vmin 0px #000;
-}
+	#button-check {
+		font-size: 5vmin;
+		padding: 8vmin;
+		padding-top: 2vmin;
+		padding-bottom: 2vmin;
+		margin-top: 5vmin;
+		background-color: white;
+		border-radius: 1vmax;
+		border: 0px;
+		display: inline-block;
+		cursor: pointer;
+		font-weight: bold;
+	}
 
-img {
-	width: 5vmax;
-	transition: 1s;
-}
+	#button-check:hover {
+		box-shadow: 0px 0px 1vmax 0px #fff;
+	}
 
-#closest-text {
-	font-size: 4vmin;
-	color: var(--textColor);
-}
+	#button-check:focus {
+		box-shadow: 0px 0px 1vmax 0px #fff;
+	}
 
-#diamond-container {
-	display: flex;
-	justify-content: center;
-	gap: 1%;
-	margin-top: 2vmax;
-}
+	#button-check:active {
+		box-shadow: 0px 0px 1vmax 0px #fff;
+		position: relative;
+		top: 1px;
+	}
 
-#diamond-container .text {
-	position: absolute;
-	visibility: hidden;
-	opacity: 0;
-	top: -50%;
+	#error-message.hidden {
+		display: none;
+	}
+
+	#error-message.visible {
+		display: block;
+		margin-top: 2vmin;
+		font-size: 4vmin;
+		color: gray;
+	}
+
+	.text-color {
+		font-size: 5vmin;
+		margin-top: 5vmin;
+		margin-bottom: -3vmin;
+	}
+
+	.user-color {
+		margin: 0 auto;
+		margin-top: 2vmin;
+		width: 40vmin;
+		height: 40vmin;
+		background-color: var(--userColor);
+		border-radius: 1vmax;
+		box-shadow: 0px 0px 1vmax 0px #fff;
+	}
+
+	.text {
+		font-size: 5vmin;
+		margin-top: 7vmin;
+	}
+
+	img {
+		width: 16vmin;
+		user-select: none;
+		z-index: 1;
+		transition: 1s;
+	}
+
+	p {
+		font-size: 4.6vmin;
+	}
+
+	#diamond-container {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-top: 18vmin;
+	}
+
+	#diamond-container .text {
+		position: absolute;
+		opacity: 0;
+	}
+
+	.up {
+		margin-top: -13.3vmin;
+	}
+
+	.left {
+		margin-left: -8vmin;
+	}
 }
 
 /* Text Colors */
@@ -134,20 +293,12 @@ p.selected {
 	position: relative;
 	visibility: visible;
 	opacity: 1;
-	top: -50%;
-	z-index: 3;
+	top: -52%;
+	z-index: 4;
 	transition: opacity 1s;
 }
 
-p.black {
-	color: white;
-}
-
 p.red {
-	color: white;
-}
-
-p.orange {
 	color: white;
 }
 
@@ -155,33 +306,92 @@ p.yellow {
 	color: black;
 }
 
-p.green {
-	color: black;
-}
-
-p.dark-green {
-	color: white;
-	font-size: 2vmin;
-}
-
-p.cyan {
-	color: black;
-}
-
 p.blue {
 	color: white;
 }
 
-p.purple {
-	color: white;
+@media (orientation: portrait) {
+	p.black {
+		color: white;
+		margin-top: 3.8vmin;
+	}
+
+	p.orange {
+		color: white;
+		margin-top: 3.8vmin;
+	}
+
+	p.green {
+		color: black;
+		margin-top: 3.8vmin;
+	}
+
+	p.dark-green {
+		color: white;
+		font-size: 3.2vmin;
+	}
+
+	p.cyan {
+		color: black;
+		margin-top: 3.8vmin;
+	}
+
+	p.purple {
+		color: white;
+		margin-top: 3.8vmin;
+	}
+
+	p.magenta {
+		color: black;
+		font-size: 3.75vmin;	
+	}
+
+	p.white {
+		color: black;
+		margin-top: 3.8vmin;
+	}
 }
 
-p.magenta {
-	color: black;
-}
+@media (orientation: landscape) {
+	p.black {
+		color: white;
+		margin-top: 2vmin;
+	}
 
-p.white {
-	color: black;
+	p.orange {
+		color: white;
+		margin-top: 2vmin;
+	}
+
+	p.green {
+		color: black;
+		margin-top: 2vmin;
+	}
+
+	p.dark-green {
+		color: white;
+		font-size: 1.85vmin;
+	}
+
+	p.cyan {
+		color: black;
+		margin-top: 2vmin;
+	}
+
+	p.purple {
+		color: white;
+		margin-top: 2vmin;
+	}
+
+	p.magenta {
+		color: black;
+		font-size: 2.25vmin;	
+	}
+
+	p.white {
+		color: black;
+		margin-top: 2vmin;
+	}
 }
 
 /* Color Diamonds */
@@ -189,48 +399,62 @@ p.white {
 img.selected {
 	position: relative;
 	transform: scale(1.3);
-	z-index: 2;
+	z-index: 3;
 	transition: 1s;
 }
 
+img.black {
+	filter: drop-shadow(0px 0px 0.5vmin #000);
+}
+
 img.red {
-	filter: invert(18%) sepia(61%) saturate(6868%) hue-rotate(357deg) brightness(88%) contrast(131%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(18%) sepia(61%) saturate(6868%) hue-rotate(357deg) brightness(88%) contrast(131%);
 }
 
 img.orange {
-	filter: invert(52%) sepia(21%) saturate(3823%) hue-rotate(360deg) brightness(102%) contrast(103%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(52%) sepia(21%) saturate(3823%) hue-rotate(360deg) brightness(102%) contrast(103%);
 }
 
 img.yellow {
-	filter: invert(99%) sepia(89%) saturate(5861%) hue-rotate(1deg) brightness(104%) contrast(103%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(99%) sepia(89%) saturate(5861%) hue-rotate(1deg) brightness(104%) contrast(103%);
 }
 
 img.green {
-	filter: invert(66%) sepia(96%) saturate(3816%) hue-rotate(84deg) brightness(125%) contrast(124%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(66%) sepia(96%) saturate(3816%) hue-rotate(84deg) brightness(125%) contrast(124%);
 }
 
 img.dark-green {
-	filter: invert(14%) sepia(92%) saturate(6172%) hue-rotate(122deg) brightness(102%) contrast(102%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(14%) sepia(92%) saturate(6172%) hue-rotate(122deg) brightness(102%) contrast(102%);
 }
 
 img.cyan {
-	filter: invert(81%) sepia(53%) saturate(2410%) hue-rotate(126deg) brightness(109%) contrast(103%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(81%) sepia(53%) saturate(2410%) hue-rotate(126deg) brightness(109%) contrast(103%);
 }
 
 img.blue {
-	filter: invert(8%) sepia(100%) saturate(7499%) hue-rotate(247deg) brightness(92%) contrast(144%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(8%) sepia(100%) saturate(7499%) hue-rotate(247deg) brightness(92%) contrast(144%);
 }
 
 img.purple {
-	filter: invert(11%) sepia(96%) saturate(7497%) hue-rotate(271deg) brightness(101%) contrast(125%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(11%) sepia(96%) saturate(7497%) hue-rotate(271deg) brightness(101%) contrast(125%);
 }
 
 img.magenta {
-	filter: invert(36%) sepia(90%) saturate(6819%) hue-rotate(295deg) brightness(113%) contrast(132%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(36%) sepia(90%) saturate(6819%) hue-rotate(295deg) brightness(113%) contrast(132%);
 }
 
 img.white {
-	filter: invert(100%) sepia(94%) saturate(0%) hue-rotate(163deg) brightness(109%) contrast(102%);
+	filter: drop-shadow(0px 0px 0.5vmin #000) 
+	invert(100%) sepia(94%) saturate(0%) hue-rotate(163deg) brightness(109%) contrast(102%);
 }
 
 
