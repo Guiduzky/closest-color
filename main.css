@@ -43,8 +43,6 @@
 
 body {
 	text-align: center;
-	font-size: 3vmin;
-	overflow: hidden;
 	background-image: url("./img/background.png");
 	background-size: 2.5vmax;
 	animation-name: move-background;
@@ -54,6 +52,10 @@ body {
 }
 
 @media (orientation: landscape) {
+	body {
+		overflow: hidden;
+		font-size: 3vmin;
+	}
 
 	h1 {
 		font-size: 8vmin;
@@ -63,11 +65,6 @@ body {
 
 	h2 {
 		font-size: 4vmin;
-	}
-
-	.text-color {
-		margin-top: 0.5%;
-		margin-bottom: -2.5vmin;
 	}
 
 	#input-hex {
@@ -122,6 +119,11 @@ body {
 		color: gray;
 	}
 
+	.text-color {
+		margin-top: 1vmax;
+		margin-bottom: -2.5vmin;
+	}
+
 	.user-color {
 		margin: 0 auto;
 		margin-top: 0.1%;
@@ -166,6 +168,10 @@ body {
 }
 
 @media (orientation: portrait) {
+	body {
+		overflow: auto;
+		font-size: 3vmin;
+	}
 
 	h1 {
 		font-size: 10vmin;
